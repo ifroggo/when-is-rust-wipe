@@ -31,7 +31,7 @@ function getNextThursday() {
 
   function dd(d,inc) {
     while(d.getUTCDay() != 4) {
-      d.setDate(d.getUTCDay()+inc);
+      d.setUTCDate(d.getUTCDay()+inc);
     }
     return d;
   }
