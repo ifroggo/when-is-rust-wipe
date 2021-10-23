@@ -1,3 +1,4 @@
+//ok this is completely broke it worked an hour ago?
 function getNextThursday() { 
   var d = new Date();
   console.log("today is " + d);
