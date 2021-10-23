@@ -1,37 +1,37 @@
 function getNextThursday() { 
   var d = new Date();
   console.log("today is " + d);
-  d.setHours(19); d.setMinutes(0); d.setSeconds(0); d.setMilliseconds(0);
+  d.setUTCHours(19); d.setUTCMinutes(0); d.setUTCSeconds(0); d.setUTCMilliseconds(0);
   // this needs refactored
-  if(d.getDate() > 7) { //has the first thursday def passed
-    d.setMonth(d.getMonth()+1);
-    d.setDate(1);
+  if(d.getUTCDate() > 7) { //has the first thursday def passed
+    d.setUTCMonth(d.getUTCMonth()+1);
+    d.setUTCDate(1);
     d = dd(d,1);
   } else {
-    if(d.getDay() < 4) {  
+    if(d.getUTCDay() < 4) {  
       d = dd(d,-1);
-    } else if(d.getDay() > 4) {
+    } else if(d.getUTCDay() > 4) {
       d = dd(d,1);
     } else {
-      if(!(dd(d,1).getHours() <= d.getHours())) {
-        if(!(dd(d,1).getMinutes() <= d.getMinutes())) {
-          d.setMonth(d.getMonth()+1);
-          d.setDate(1);
+      if(!(dd(d,1).getUTCHours() <= d.getUTCHours())) {
+        if(!(dd(d,1).getUTCMinutes() <= d.getUTCMinutes())) {
+          d.setUTCMonth(d.getUTCMonth()+1);
+          d.setUTCDate(1);
           d = dd(d,1);
         } else {
           d = dd(d,1);
         }
       } else {
-        d.setMonth(d.getMonth()+1);
-        d.setDate(1);
+        d.setUTCMonth(d.getUTCMonth()+1);
+        d.setUTCDate(1);
         d = dd(d,1);
       }
     }
   }
 
   function dd(d,inc) {
-    while(d.getDay() != 4) {
-      d.setDate(d.getDay()+inc);
+    while(d.getUTCDay() != 4) {
+      d.setDate(d.getUTCDay()+inc);
     }
     return d;
   }
